@@ -1,5 +1,5 @@
 project_name: "iris-classifier"
-framework: "sklearn"
+framework: "xgboost"
 task_type: "classification"
 entry_point: "ml/train.py"
 predict_module: "ml/predict.py"
@@ -11,7 +11,11 @@ numerical_features:
   - "petal_width"
 categorical_features: []
 metrics_threshold:
-  accuracy: 0.85
-  f1: 0.80
+  accuracy: 0.92
+  f1: 0.90
 dependencies: "requirements.txt"
 dataset_path: "data/iris.csv"
+xgboost:
+  n_trials: 30
+  max_depth_range: [3, 8]
+  lr_range: [0.01, 0.3]
